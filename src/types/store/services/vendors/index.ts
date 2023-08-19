@@ -51,7 +51,7 @@ interface UserImage {
     userType: string;
 }
 
-interface VendorData {
+export interface VendorData {
     id: number;
     vendorCode: string;
     noOrder: boolean;
@@ -167,7 +167,7 @@ interface VendorData {
     new_type_title: string;
 }
 
-interface Vendor {
+export interface Vendor {
     type: string;
     data: VendorData;
 }

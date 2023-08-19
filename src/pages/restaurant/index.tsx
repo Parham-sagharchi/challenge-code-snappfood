@@ -30,13 +30,17 @@ const Restaurant = () => {
     }
   }, [data, isFetching]);
 
-  if (isLoading) return <Loader />;
+  if (isLoading) return <Loader data-cy="loader" />;
   return (
     <>
       {vendorsData?.length > 0 ? (
-        <Vendors hasMore={hasMore} vendorsData={vendorsData} />
+        <Vendors
+          data-cy="vendors"
+          hasMore={hasMore}
+          vendorsData={vendorsData}
+        />
       ) : (
-        <p>{t("No vendor to show")}</p>
+        <p data-cy="no-vendors-message">{t("No vendor to show")}</p>
       )}
     </>
   );

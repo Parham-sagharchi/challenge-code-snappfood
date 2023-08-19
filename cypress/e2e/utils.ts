@@ -12,5 +12,5 @@ export const Landing: Route = {
 
 export const Restaurant: Route = {
     path: "/restaurant",
-    url: `${BASE_URL}/login`,
+    url: `${BASE_URL}/restaurant`,
 };

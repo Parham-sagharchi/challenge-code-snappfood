@@ -17,8 +17,15 @@ import VendorCardWrapper, {
   StarIcon,
 } from "@/core/components/VendorCard/vendorCard.style";
 import { useTranslation } from "react-i18next";
+import { VendorData } from "@/types/store/services/vendors";
 
-const VendorCard = ({ mesureRef, vendorData }: any): any => {
+const VendorCard = ({
+  mesureRef,
+  vendorData,
+}: {
+  mesureRef: any;
+  vendorData: VendorData;
+}): JSX.Element => {
   const { t } = useTranslation();
 
   const {
@@ -31,13 +38,13 @@ const VendorCard = ({ mesureRef, vendorData }: any): any => {
     is_pro,
     best_coupon,
     commentCount,
-  }: any = vendorData;
+  } = vendorData;
 
   const imageWidth = 567;
   const imageHeight = 134;
 
   return (
-    <VendorCardWrapper ref={mesureRef}>
+    <VendorCardWrapper ref={mesureRef} data-cy="vendor-card">
       <CardImageWrapper>
         <CardBackgroundWrapper>
           <CardBackgroundImage
@@ -51,7 +58,7 @@ const VendorCard = ({ mesureRef, vendorData }: any): any => {
         <CardLogoWrapper>
           <CardLogo
             src={logo}
-            alt={logo}
+            alt={title}
             width={imageWidth}
             height={imageHeight}
           />
