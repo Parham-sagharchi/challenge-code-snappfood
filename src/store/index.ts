@@ -1,25 +1,3 @@
-// import { combineReducers, configureStore } from "@reduxjs/toolkit";
-// import { loaderSlice } from "@/store/slice/loader";
-// import { generalSlice } from "@/store/slice/general";
-// import { vendorsApi } from "@/store/services/vendors";
-
-// const reducers = {
-//     [vendorsApi.reducerPath]: vendorsApi.reducer,
-//     [generalSlice.name]: generalSlice.reducer,
-//     [loaderSlice.name]: loaderSlice.reducer,
-// };
-
-// const reducer = combineReducers(reducers);
-
-// export const store = configureStore({
-//     reducer,
-// });
-
-// export type AppDispatch = typeof store.dispatch;
-// export type RootState = ReturnType<typeof store.getState>;
-
-
-
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { loaderSlice } from "@/store/slice/loader";
 import { generalSlice } from "@/store/slice/general";
