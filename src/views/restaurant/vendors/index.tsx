@@ -4,6 +4,7 @@ import VendorCard from "@/core/components/VendorCard";
 import VendorsWrapper from "@/views/restaurant/vendors/vendors.style";
 import { setPage } from "@/store/slice/general";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
+import { Vendor } from "@/types/store/services/vendors";
 
 const Vendors = memo(({ hasMore, vendorsData }: any) => {
   const dispatch = useAppDispatch();
@@ -18,22 +19,25 @@ const Vendors = memo(({ hasMore, vendorsData }: any) => {
   }, [isIntersecting, hasMore]);
 
   return (
-    <VendorsWrapper>
-      {vendorsData.map((vendorData: any, index: number) => {
+    <VendorsWrapper data-cy="vendors-wrapper">
+      {vendorsData.map((vendorData: Vendor, index: number) => {
         if (vendorData?.type === "VENDOR") {
           if (index === vendorsData.length - 1) {
             return (
               <VendorCard
+                data-cy="vendor-card"
                 mesureRef={measureRef}
                 key={vendorData?.data?.id}
-                vendorData={vendorData}
+                vendorData={vendorData?.data}
               />
             );
           }
           return (
             <VendorCard
+              data-cy="vendor-card"
               key={vendorData?.data?.id}
               vendorData={vendorData?.data}
+              mesureRef={undefined}
             />
           );
         }
