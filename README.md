@@ -60,7 +60,7 @@ I tested this project with this docker version and no have problem:
       ```
   - Hint 1: Go to `http://container` and view project.
   
-  - Hint 2: You can deploy this project on your machine or give permission on vercel like me ``.
+  - Hint 2: You can deploy this project on your machine or give permission on vercel like me `https://challenge-code-snappfood.vercel.app/`.
 
 
 ***Caution:***
@@ -81,5 +81,4 @@ I tested this project with this docker version and no have problem:
    - NextJs - The web development framework used
    - Redux Toolkit - The state management library used
    - Styled Components - The CSS-in-JS tool used
-   - Zod - The schema validator used
    - Cypress - The E2E Test used
