@@ -11,9 +11,9 @@ const defaultTheme = {
       dark: "#000000",
       light: "#fff",
       green: "#22a958",
-      disabled: "#13141f",
+      disabled: "#a3a3a3",
     },
-    success: { main: "#00d170", dark: "#22a958" },
+    success: { main: "rgba(91, 168, 41, 0.08)", dark: "#5ba839" },
     border: { main: "#f4f5f7", light: "#cccc", card: "#f2f2f2" },
     boxShadow: {
       main: "rgba(26, 68, 116, 0.16)",
@@ -31,11 +31,11 @@ const defaultTheme = {
   },
   fontSizes: {
     values: {
-      xs: "8px",
-      sm: "10px",
-      md: "11px",
-      lg: "12px",
-      xl: "16px",
+      xs: "10px",
+      sm: "11px",
+      md: "12px",
+      lg: "13px",
+      xl: "14px",
     },
   },
   font: {
