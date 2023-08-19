@@ -1,14 +1,14 @@
-import { useCallback, useState } from "react";
+import { useCallback, useState, Ref } from "react";
 
 const useOnScreen = ({
     root = null,
     rootMargin = "0px",
     threshold = 0,
 } = {}) => {
-    const [observer, setOserver] = useState<any>();
-    const [isIntersecting, setIntersecting] = useState(false);
+    const [observer, setOserver] = useState<IntersectionObserver | undefined>();
+    const [isIntersecting, setIntersecting] = useState<boolean>(false);
 
-    const measureRef = useCallback(
+    const measureRef: Ref<any> = useCallback(
         (node: any) => {
             if (node) {
                 const observer = new IntersectionObserver(
