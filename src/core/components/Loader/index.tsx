@@ -10,15 +10,22 @@ const Loader: FC<LoaderProps> = ({ className }) => {
   const generateCircles = () => {
     const circles: JSX.Element[] = [];
 
-    for (let i = 0; i < 3; i++) {
+    for (let index = 0; index < 3; index++) {
       circles.push(
-        <circle fill="#ff00a4" stroke="none" cx={6 + 20 * i} cy="50" r="6">
+        <circle
+          key={index}
+          fill="#ff00a4"
+          stroke="none"
+          cx={6 + 20 * index}
+          cy="50"
+          r="6"
+        >
           <animate
             attributeName="opacity"
             dur="1s"
             values="0;1;0"
             repeatCount="indefinite"
-            begin={0.1 * (i + 1)}
+            begin={0.1 * (index + 1)}
           />
         </circle>
       );
