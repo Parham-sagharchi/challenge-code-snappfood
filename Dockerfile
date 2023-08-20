@@ -1,29 +1,26 @@
-# Base image
-FROM node:16 as build
-
-# Set the working directory
-WORKDIR /app
-
-# Copy package.json and yarn.lock
+FROM node:16.18.0 as dependencies
+WORKDIR /snappfood
 COPY package.json yarn.lock ./
+RUN yarn install --frozen-lockfile
 
-# Install dependencies
-RUN yarn install
-
-# Copy the source code
+FROM node:16.18.0 as builder
+WORKDIR /snappfood
 COPY . .
-
-# Build the application
+COPY --from=dependencies /snappfood/node_modules ./node_modules
 RUN yarn build
 
-# Stage 2: Serve the built application with a lightweight web server
-FROM nginx:1.21.0-alpine
+FROM node:16.18.0 as runner
+WORKDIR /snappfood
+ENV NODE_ENV production
 
-# Copy the built files to the appropriate directory
-COPY --from=build /app/dist /usr/share/nginx/html
+COPY --from=builder /snappfood/.env ./
+COPY --from=builder /snappfood/next.config.js ./
+COPY --from=builder /snappfood/modules.d.ts ./
+COPY --from=builder /snappfood/tsconfig.json ./
+COPY --from=builder /snappfood/public ./public
+COPY --from=builder /snappfood/.next ./.next
+COPY --from=builder /snappfood/node_modules ./node_modules
+COPY --from=builder /snappfood/package.json ./package.json
 
-# Expose port 80
-EXPOSE 80
-
-# Start Nginx server
-CMD ["nginx", "-g", "daemon off;"]
+EXPOSE 3000
+CMD ["yarn", "start"]
