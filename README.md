@@ -44,14 +44,16 @@ I tested this project with this docker version and no have problem:
 
    - Docker : `Docker version 20.10.5, build 55c4c88`
 
-   - Run command `sudo docker-compose up`
+   - Run command `sudo docker-compose up --build`
 
    - Above command will start container
 
-   - Now we must find the container id
+   - First Way: Go to `http://localhost/` and view project.
+
+   - Second Way: You must find the container id
 
         ```sh
-        docker ps -a # get "CONTAINER ID" of worker.
+        docker ps -a # get "CONTAINER ID" of "nginx:1.21.0-alpine".
         ```
   - After that, you can find docker ip using docker network inspect network_name.
 
